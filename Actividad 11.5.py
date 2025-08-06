@@ -1,4 +1,13 @@
 Empleados = {}
+def quick_sort(listas):
+    if len(listas) <= 1:
+        return listas
+    pivote = listas[0]
+    menores = [x for x in listas[1:] if x < pivote]
+    iguales = [x for x in listas[1:] if x == pivote]
+    mayores = [x for x in listas[1:] if x > pivote]
+    return quick_sort(menores) + iguales + quick_sort(mayores)
+
 def menu():
     while True:
      print("MENU")
