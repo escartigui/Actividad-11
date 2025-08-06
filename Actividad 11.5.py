@@ -43,14 +43,19 @@ def menu():
              nombrededi = input("Ingrese nombre: ")
      if op == 2:
         print("\nLISTADO")
-        for Id, datos in Empleados.items():
+        listid = list(Empleados.keys())
+        ids_ordenado = quick_sort(listid)
+
+        for Id in ids_ordenado:
+            datos = Empleados[Id]
             print(f"Codigo: {Id}")
             print(f"Nombre: {datos['Nombre']}")
             print(f"Edad: {datos['Edad']}")
             print(f"Sexo: {datos['Sexo']}")
             print(f"Ocupación")
-            print(f"codigo de la ocupación: {codigo}")
-            print(f"Nombre de la ocupación: {nombrededi}")
+            for cod,nom in datos['Ocupaciones'].items():
+                print(f"codigo{cod}")
+                print(f"nombre{nom}")
      if op == 3:
         print("Hasta que nos volvamos a ver")
         break
