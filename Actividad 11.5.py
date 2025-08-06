@@ -1,47 +1,48 @@
 Empleados = {}
 def menu():
     while True:
-        print("Menu")
-        print("1.Ingreso")
-        print("2.Presentar")
-        print("3.Buscar")
-        print("4.Eliminar")
-        op = int(input("Ingrese un opcion: "))
-        if op == 1:
-            cantidad = int(input("Ingrese la cantidad de elementos: "))
-            for i in range(cantidad):
-                print(f"elementos {i+1}")
-                while True:
-                    Id = int(input("Ingrese ID del elemento: "))
-                    if Id in Empleados:
-                     print("Ya esta ingresado")
-                    else:
-                        Empleados[Id] = {}
-                        break
-                Empleados[Id]["Nombre"] = input("Ingrese el nombre: ")
-                Empleados[Id]["edad"] = int(input("Ingrese la edad: "))
-                Empleados[Id]["dedicación"] = {}
-                cantidedi = input("Ingrese la cantidad de elementos: ")
-                for i in range(cantidad):
-                    print(f"elementos {i+1}")
-                    while True:
-                          codidedi = input("Ingrese el codigo: ")
-                          if codidedi in Empleados[Id]:
-                            print("ya ingresado")
-                          else:
-                            Empleados[Id][codidedi] = {}
-                            break
-                    nombrededi = input("Ingrese el nombre de la dedicación: ")
-
-        if op == 2:
-            print("\nLISTADO")
-            for Id, datos in Empleados.items():
-                print(f"codigo {Id}")
-                print(f"nombre: {datos['Nombre']}")
-                print(f"edad: {datos['edad']}")
-                print(f"codigo del viaje {codidedi}")
-                print(f"nombre de la dedicación {nombrededi}")
-        if op == 3:
-            print("Hasta que nos volvamos a ver")
-            break
+     print("MENU")
+     print("1.Agregar")
+     print("2.Listado")
+     print("3.Salir")
+     op = int(input("Ingrese su opción"))
+     if op == 1:
+        cantidad = int(input("Ingrese la cantidad de elementos: "))
+        for i in range(cantidad):
+            print(f"Empleado: {i+1}")
+            while True:
+                Id = int(input("Ingrese ID del empleado: "))
+                if Id in Empleados:
+                 print("Ya utilizado")
+                else:
+                 Empleados[Id] = {}
+                 break
+            Empleados[Id]['Nombre'] = input("Ingrese nombre: ")
+            Empleados[Id]['Edad'] = int(input("Ingrese edad: "))
+            Empleados[Id]['Sexo'] = input("Ingrese sexo: ")
+            Empleados[Id]['Ocupación'] = {}
+            canti = int(input("Ingrese la cantidad de ocupaciones: "))
+            for i in range(canti):
+             print(f"Ocupación {i+1}")
+             while True:
+                 codigo = input("Ingrese codigo: ")
+                 if codigo in Empleados[Id]:
+                    print("Dato ya ingresado")
+                 else:
+                    Empleados[Id][codigo] = {}
+                    break
+             nombrededi = input("Ingrese nombre: ")
+     if op == 2:
+        print("\nLISTADO")
+        for Id, datos in Empleados.items():
+            print(f"Codigo: {Id}")
+            print(f"Nombre: {datos['Nombre']}")
+            print(f"Edad: {datos['Edad']}")
+            print(f"Sexo: {datos['Sexo']}")
+            print(f"Ocupación")
+            print(f"codigo de la ocupación: {codigo}")
+            print(f"Nombre de la ocupación: {nombrededi}")
+     if op == 3:
+        print("Hasta que nos volvamos a ver")
+        break
 menu()
